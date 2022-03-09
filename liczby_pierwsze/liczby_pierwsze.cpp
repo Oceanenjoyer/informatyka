@@ -1,7 +1,30 @@
-﻿using namespace std;
-#include <iostream>
+﻿#include <iostream>
+using namespace std;
 
 int main()
 {
-	int lp = 1;
+	int ilp = 1; // ile chcemy
+	cin >> ilp;
+	int zlp = 0; // znalezione
+	int lp = 2; // aktualna liczba sprawdzana
+
+
+
+
+	while (zlp <= ilp)
+	{
+		for (int d = 2; d <= lp - 1; d++) 
+		{
+			if (lp % d == 0)
+			{
+				cout << lp << endl;
+				zlp++;
+			}
+			else 
+			{
+				lp++;
+			}
+		}
+
+	}
 }
