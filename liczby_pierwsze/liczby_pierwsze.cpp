@@ -1,30 +1,26 @@
 ﻿#include <iostream>
 using namespace std;
 
-int main()
-{
-	int ilp = 1; // ile chcemy
-	cin >> ilp;
-	int zlp = 0; // znalezione
-	int lp = 2; // aktualna liczba sprawdzana
+int n;
 
-
-
-
-	while (zlp <= ilp)
+int main() {
+	cout << "Podaj ilosc liczb pierwszysc ktore chcesz znalezc: \n";
+	cout << "Liczby pierwsze ktory zostaly znalezione to: \n";
+	cin >> n;
+	int lp = 0;
+	int p = 2;
+	while (lp < n)
 	{
-		for (int d = 2; d <= lp - 1; d++) 
+		for (int d = 2; d < p - 1; d++)
 		{
-			if (lp % d == 0)
+			if (p % d == 0)
 			{
-				cout << lp << endl;
-				zlp++;
-			}
-			else 
-			{
-				lp++;
+				p = p + 1;
+				d = 2;
 			}
 		}
-
+		cout << p << endl;
+		lp = lp + 1;
+		p = p + 1;
 	}
 }
