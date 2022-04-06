@@ -1,17 +1,21 @@
 ﻿#include <iostream>
 using namespace std;
-void szyfrowanie();
+void szyfrowanie(int klucz, char tab[]);
 
 int main()
 {
 	int klucz;
 	char tab[200];
 
+	cout << "Podaj wyraz składajacy sie z malych liter: ";
+	cin >> tab;
+	cout << "Popaj klucz z przedzialu [-26..26]: ";
 	cin >> klucz;
 
-	cin >> tab;
-
-	szyfrowanie();
+	szyfrowanie(klucz, tab);
+	cout << "Po zaszyfrowaniu: " << tab << endl;
+	szyfrowanie(-klucz, tab);
+	cout << "Po rozszyfrowaniu: " << tab << endl;
 }
 
 void szyfrowanie(int klucz, char tab[])
@@ -27,13 +31,13 @@ void szyfrowanie(int klucz, char tab[])
 	{
 		for (int i = 0; i < dl; i++)
 		{
-			if (tab + klucz <= "z")
+			if (tab[i] + klucz <= 'z')
 			{
-				tab += klucz;
+				tab[i] += klucz;
 			}
 			else
 			{
-				tab = tab + klucz - 26;
+				tab[i] = tab[i] + klucz - 26;
 			}
 		}
 	}
@@ -41,13 +45,13 @@ void szyfrowanie(int klucz, char tab[])
 	{
 		for (int i = 0; i < dl; i++)
 		{
-			if (tab + klucz >= "a")
+			if (tab[i] + klucz >= 'a')
 			{
-				tab += klucz;
+				tab[i] += klucz;
 			}
 			else
 			{
-				tab = tab + klucz + 26;
+				tab[i] = tab[i] + klucz + 26;
 			}
 		}
 	}
